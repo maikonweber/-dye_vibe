@@ -10,16 +10,10 @@ export default createGlobalStyle`
     }
 
     body {
-    background: #f5f5f5;
+    background: #8C93A8;
     font-size: 14px;
     color: #333;
     font-family: sans-serif;    
-    }
-
-    .App {
-        display: grid;
-        grid-template-columns: repeat(10, 1fr); 
-        grid-template-rows: repeat(18, 2fr);
     }
 
 `;

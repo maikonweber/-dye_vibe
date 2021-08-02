@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    display: grid;
+    grid-template-columns: repeat(10, 3fr);
     height: 60px;
     background: #312F2F;
     width: 100vw;    
 
     .icons-menu {
-
         font-size: 35px;
         position: relative;
         left: 10px;
@@ -15,14 +16,14 @@ export const Container = styled.div`
     }
 
     .shop-bag {
-        display: grid;
-        grid-rows-start: ;
-        grid-columns-start: 9;
-        grid-columns-end: 10;
+        position: relative;
+        top: 5px;
+        left: 29px;
+        grid-column: 9/10;
         font-size : 35px;
         color: #85FFFF;
-       
     }
+
 
     `
 ;

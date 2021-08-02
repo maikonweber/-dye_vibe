@@ -1,6 +1,9 @@
 Cores!!
-https://coolors.co/13293d-e71d36-85ffff-312f2f-188fa7
-
+13293D
+E71D36
+85FFFF
+312F2F
+188FA&
 
 # Getting Started with Create React App
 
