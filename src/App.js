@@ -1,25 +1,20 @@
 
 import React from 'react';
-import Header from './components/Header/header'
+import Header from '../src/components/header'
 import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import  GlobalStyle  from './styles/global';
-import Container from './components/Container/container'
-import ProductCard from './components/productsCard/productCard';
-
-const descript = "Esta é descriçao de um item por favor se você estiver lendo isso vai tomar no cu"
- 
+import styles from './Home.module.css';
+import Home from './pages/home';
 
 function App() {
 
   return (
-    <div className="App">
+    <div className={styles.container}>
       <Router>
+        <Header />
         <Switch>
-      <GlobalStyle />
           <Route path='/' />
-      </Switch>
-      <Header /> 
-        <ProductCard  />
+          <Home />
+        </Switch>
       </Router>
     </div>
   );
