@@ -1,7 +1,7 @@
 import styles from '../styles/card.module.css';
 
 
-export default function Card({ color, gridColumn, gridRow, image }) {
+export default function Card({ image }) {
 
     return (
         <div className={styles.grid}> 
