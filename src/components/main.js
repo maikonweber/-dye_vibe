@@ -15,7 +15,6 @@ export default function Main() {
         <div className={styles.items}><img src="https://unsplash.it/1600/400?image=976"/></div>
         <div className={styles.items}><img src="https://unsplash.it/1600/400?image=993"/></div>
         <div className={styles.items}><img src="https://unsplash.it/1600/400?image=969"/></div>
-       
     </div>
 </div>
 

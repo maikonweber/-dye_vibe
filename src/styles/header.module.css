@@ -9,7 +9,7 @@
 .header {
     grid-column: 1/6;
     grid-row: 1/1;
-    width: 100%;  
+    width: 100vw;  
     height: 62%;
     background: #161925;;
     border-radius: 6px;
@@ -72,9 +72,19 @@
   .navshow {
     width: 30%;
   }
+    .header {
+      grid-column: 1/6;
+    }
+  }
+
+@media screen and (max-width: 425px) {  
+  .header{
+    grid-column: 1/2;
+    width: 100vw;
+  }
   
 }
-
+  
 @keyframes brigthColor {
   0% {color: #E2CFEA;}
   25% {color: #004FFF;}

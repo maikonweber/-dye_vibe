@@ -13,7 +13,6 @@ export default function Header({})  {
     return (
         <>
         <header className={styles.header}>
-        
             <h1>
                Dye Vibe
             </h1>
