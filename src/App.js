@@ -1,24 +1,27 @@
 
 import React from 'react';
-import Header from '../src/components/header'
-import {BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import styles from './Home.module.css';
-import Login from './pages/login';
-import Home from './pages/home';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import  PrivateRoute  from './privateRoute';
+import { ChakraProvider } from '@chakra-ui/react';
+import { theme } from './styles/theme'
+import { Home } from './pages/Home';
+import  { Header }  from './components/header';
 
-function App() {
 
-  return (
-    <div className={styles.container}>
+export default function App() {
+
+  return ( 
+    <>
+      <ChakraProvider theme={theme} >
       <Router>
         <Header />
         <Switch>
-          <Route path='/' component={Home} />
-          <Route path='/login'component={Login} />
+          <Route exact path="/" component={Home}  />
         </Switch>
       </Router>
-    </div>
-  );
+      </ChakraProvider >
+    </>
+  )
+
 }
 
-export default App;

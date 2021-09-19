@@ -1,51 +1,40 @@
-import {useState} from 'react'
-import { AiOutlineMenu, AiFillSkin,  } from 'react-icons/ai';
-import styles from '../styles/header.module.css';
-import { RiShirtLine } from 'react-icons/ri';
-import { GiShorts, GiBilledCap, GiShoppingCart, GiTShirt, GiSleevelessTop, GiShirt } from 'react-icons/gi';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Flex, Image, Input, Icon, Spacer } from '@chakra-ui/react'
+import  {RiSearchLine} from 'react-icons/ri';
 
-export default function Header({})  {
-    // useState
-    const [isOpen, setIsOpen] = useState(false);
-    const [isOpenCart, setIsOpenCart] = useState(false);
+const logo = '../../public/logo192.png'
 
-  const toggleMenu = () => { setIsOpen(!isOpen) }
-  const toogleCart = () => { setIsOpenCart(!isOpen) }  
+export const Header = () => {
 
     return (
-        <>
-        <header className={styles.header}>
-            <h1>
-               Dye Vibe
-            </h1>
-        </header>
-        <AiOutlineMenu onClick={toggleMenu} className={styles.button} /> 
-        <GiShoppingCart onClick={toogleCart} className={styles.shopButton} />
-          <nav className={!isOpen ? styles.nav : styles.navshow}>
-          <ul className={styles.lista}>
-              <li className={styles.itens}>
-                    <AiFillSkin className={styles.icon} />
-              </li>
-              <li className={styles.itens}>
-                    <RiShirtLine className={styles.icon} /> 
-              </li>
-              <li className={styles.itens}>
-                    <GiShorts className={styles.icon} />         
-              </li>
-              <li className={styles.itens}>
-                    <GiBilledCap className={styles.icon} />         
-              </li>
-              <li className={styles.itens}>
-                    <GiSleevelessTop className={styles.icon} />         
-              </li>
-              <li className={styles.itens}>
-                    <GiShirt className={styles.icon} />         
-              </li>
-              <li className={styles.itens}>
-                    <GiTShirt className={styles.icon} />         
-              </li>
-          </ul>
-      </nav>
-        </>
-    );
-}
+      
+        <Flex as='header' bgGradient='linear(to-r, red.100, blue.200)' maxWith={1488} h='20' mx='auto' mt='0'px='8' align='center' w='100%'>
+            <Image alignSelf='center' src='Logo.png' alt="Logo" objectFit="cover"
+            boxSize='70px' />
+             <Spacer w='70px' />
+        <Flex
+        as='label'
+        flex='1'
+        py='3'
+        px='6'
+        nl='6'
+        maxWidth={280}
+        alignSelf='Center'
+        color='green.400'
+        position='relative'
+        bg='blue.100'
+        borderRadius='full'
+        >
+           
+            <Input color='blue.900'
+            variant='unstyled'
+            px='3'            
+            mr='4'
+            placeholder='Buscar por Itens'
+            _placeholder={{color: 'blue.900'}}></Input>
+            <Icon as={RiSearchLine} fontSize='20' color='blue.900' />
+         </Flex>
+        </Flex>
+    )
+};
