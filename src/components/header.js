@@ -1,11 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Flex, Image, Input, Icon, Spacer } from '@chakra-ui/react'
+import { Flex, Image, Input, Icon, Spacer, Button, useDisclosure } from '@chakra-ui/react'
 import  {RiSearchLine} from 'react-icons/ri';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import {BsPeopleCircle} from 'react-icons/bs';
+import {HiOutlineShoppingCart } from 'react-icons/hi';
+import {
+    Drawer,
+    DrawerBody,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerOverlay,
+    DrawerContent,
+    DrawerCloseButton,
+  } from "@chakra-ui/react"
 
 const logo = '../../public/logo192.png'
 
 export const Header = () => {
+    const {isOpen, onOpen, onClose} = useDisclosure();
+    const btnRef = React.useRef();
 
     return (
       
@@ -34,7 +48,36 @@ export const Header = () => {
             placeholder='Buscar por Itens'
             _placeholder={{color: 'blue.900'}}></Input>
             <Icon as={RiSearchLine} fontSize='20' color='blue.900' />
+            
          </Flex>
+         <Icon as={BsPeopleCircle} ml='6' fontSize='25' color='blue.900' onClick={onOpen} />
+         <Icon as={HiOutlineShoppingCart} ml='6'fontSize='25' color='blue.900' onClick={onOpen} />
+         <Icon as={GiHamburgerMenu} ml='6'
+         fontSize='25' color="blue.900" onClick={onOpen}>
+      </Icon>
+      <Drawer
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>Create your account</DrawerHeader>
+
+          <DrawerBody>
+            <Input placeholder="Type here..." />
+          </DrawerBody>
+
+          <DrawerFooter>
+            <Button variant="outline" mr={3} onClick={onClose}>
+              Cancel
+            </Button>
+            <Button colorScheme="blue">Save</Button>
+          </DrawerFooter>
+        </DrawerContent>
+      </Drawer>
         </Flex>
     )
 };
