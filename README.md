@@ -4,6 +4,24 @@ E71D36
 85FFFF
 312F2F
 188FA&
+#F0D65F
+
+Fontes : font-family: 'Gluten', cursive;
+         font-family: 'Grechen Fuemen', cursive;
+         font-family: 'Yanone Kaffeesatz', sans-serif;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Getting Started with Create React App
 

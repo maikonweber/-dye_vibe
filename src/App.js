@@ -4,8 +4,9 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import  PrivateRoute  from './privateRoute';
 import { ChakraProvider } from '@chakra-ui/react';
 import { theme } from './styles/theme'
-import { Home } from './pages/Home';
+import { login } from './pages/login';
 import  { Header }  from './components/header';
+import { Home } from './pages/home';  
 
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
       <Router>
         <Header />
         <Switch>
+          <Route exact path="/login" component={login}  />
           <Route exact path="/" component={Home}  />
         </Switch>
       </Router>
