@@ -13,5 +13,8 @@ export const Home = () => {
             <Flex  w='100%' my='6' h='50vh' maxWidth={1480} mx='auto' px='6' >
                 <Slider sliderItems={sliderItems} />
                 </Flex>
+                <Flex w='100%' my='6' h='80vh' maxWidth={1480} mx='auto' px='6' > 
+                <Card />
+                </Flex>
         </Flex>)
 }

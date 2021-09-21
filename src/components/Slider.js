@@ -12,6 +12,8 @@ const Container = styled.div`
     margin-bottom: 5px;
     overflow: hidden;
     postion: relative;
+    object-position: center;
+    border-radius: 20px;
 `
 
 const Arrow = styled.div`
@@ -24,30 +26,52 @@ const Arrow = styled.div`
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 0px;
-    bottom: 720px;
+    top: 240px;
+    bottom: 650px;
     left: ${props => props.direction === 'left' && '10px'};
     right: ${props => props.direction ==='right' && '10px'};
     margin: auto;
     cursor: pointer;
     color: #fff;
 
-`
+    @media screen and (max-width: 768px) {
+        top: 120px;
+    }
+
+    @media screen and (max-width: 1080px) {
+        top: 232px;
+
+
+    @media screen and (max-width: 485px) {
+        top: 120px;
+    }
+
+    @media screen and (max-width: 685px) {
+        top: 160px;
+    }
+    
+    
+    `
 
 
 const Slide = styled.div`
    height: 700px;
+   border-radius: 15px;
+  
 `
 const ImageContainer = styled.div`
     width: 100%;
     height: 100%;    
-   
+    border-radius: 15px;
+
     `
 
 const Image = styled.img `
     width: 1250px;
-    height: 700px;    
-    border-radius: 15%;
+    height: auto;    
+    border-radius: 15px;
+    object-fit: cover;  
+    object-position: 50% 60%;
     `
 export default function  Slider({sliderItems}) {
     const [current, setCurrent] = useState(0);
