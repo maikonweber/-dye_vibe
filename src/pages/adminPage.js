@@ -1,29 +1,46 @@
 // Component login
-import styles from '../styles/login.module.css'
-import React from 'react'
 
-export default function Login () {
+import React from 'react'
+import { Flex, Input, Button, Stack, FormLabel, FormControl } from '@chakra-ui/react'
+
+export  function Formspage () {
 
     return (
-        <>
-        <div className={styles.login}>
-            <div className={styles.container}>
-                <h1>Sign in with Admin Account</h1>
-                <form>
-                    <h5>E-mail</h5>
-                    <input type="text" name="email" />
-                    <h5>Password</h5>
-                    <input type="password" name="password" />
-                    <button type="submit">Sign in</button>
-                </form>
-                <p>
-                    By signing-in you agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
-                </p>
-                <p>
-                    Need an account? <a href="#">Sign up</a>
-                </p>
-            </div>
-        </div>
-        </>
+        <Flex w='100vw' h='100vh' alignItems='center' justifyContent='center'>
+        
+        <Flex as='form' width='100%' maxWidth={560} maxHeight={800} 
+                bgGradient='linear(to-r,red.200, green.200)' p='8' borderRadius={8} flexDir='column'>
+        <Stack spacing='4' />
+        <FormControl>
+        <FormLabel color='blue.600'  htmlFor="email">Nome Completo</FormLabel>
+        <Input name='email' type='email' id='email' size='lg' focusBorderColor='green.900' _hover={{bgColor: 'gree.100'}}></Input>
+        </FormControl> 
+        <FormControl>
+        <FormLabel color='blue.600'  htmlFor="email">Enderço</FormLabel>
+        <Input name='email' type='email' id='email' size='lg' focusBorderColor='green.900' _hover={{bgColor: 'gree.100'}}></Input>
+        </FormControl> 
+        <FormControl>
+        <FormLabel color='blue.600'  htmlFor="email">Telefone</FormLabel>
+        <Input name='email' type='email' id='email' size='lg' focusBorderColor='green.900' _hover={{bgColor: 'gree.100'}}></Input>
+        </FormControl> 
+        <FormControl>
+        <FormLabel color='blue.600'  htmlFor="email">Email</FormLabel>
+        <Input name='email' type='email' id='email' size='lg' focusBorderColor='green.900' _hover={{bgColor: 'gree.100'}}></Input>
+        </FormControl> 
+        <FormControl>
+        <FormLabel color='blue.600'  htmlFor="email">Instagram</FormLabel>
+        <Input name='email' type='email' id='email' size='lg' focusBorderColor='green.900' _hover={{bgColor: 'gree.100'}}></Input>
+        </FormControl> 
+            
+        <FormControl>
+        <FormLabel color='blue.600' htmlFor="email">Senha</FormLabel>
+        <Stack spacing='4' />
+            <Input name='password' type='password' id='password' size='lg' focusBorderColor='green.900' _hover={{bgColor: 'gree.100'}}
+            ></Input>
+             </FormControl>
+             <Stack spacing='4' />
+            <Button type='submit' mt='6' bg='blue.300' color='red.900'> Registrar </Button>
+        </Flex>
+        </Flex>
     )
 }

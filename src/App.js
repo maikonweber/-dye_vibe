@@ -7,7 +7,7 @@ import { theme } from './styles/theme'
 import { login } from './pages/login';
 import  { Header }  from './components/header';
 import { Home } from './pages/home';  
-
+import { Formspage }   from  './pages/adminPage'
 
 export default function App() {
 
@@ -18,6 +18,7 @@ export default function App() {
         <Header />
         <Switch>
           <Route exact path="/login" component={login}  />
+          <Route exact path="/forms" component={Formspage} />
           <Route exact path="/" component={Home}  />
         </Switch>
       </Router>
