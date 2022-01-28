@@ -9,14 +9,16 @@ import {
     Button,
     Stack
   } from "@chakra-ui/react";
+
+
 export const Card = ({}) => {
     return (
         <Box
+        bg="white"
         p={4}
-        display={{ md: "flex" }}
         maxWidth="32rem"
         borderWidth={1}
-        margin={2}
+        margin={5}
       >
         <AspectRatio ratio={1 / 1}>
           <Image
