@@ -14,7 +14,15 @@ export const Home = () => {
                 <Slider sliderItems={sliderItems} />
                 </Flex>
                 <Flex w='100%' my='6' h='80vh' maxWidth={1480} mx='auto' px='6' > 
-                <Card />
+                <SimpleGrid w='100%' h='80vh' columns={[1, 1, 2, 3]} spacing={10} maxWidth={[300, 400, 1250, 1650]}>
+                    <Card></Card>
+                    <Card></Card>
+                    <Card></Card>
+                    <Card></Card>
+                    <Card></Card>
+                    <Card></Card>
+
+                </SimpleGrid>
                 </Flex>
-        </Flex>)
+            </Flex>)
 }

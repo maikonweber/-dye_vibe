@@ -8,11 +8,13 @@ import { login } from './pages/login';
 import  { Header }  from './components/header';
 import { Home } from './pages/home';  
 import { Formspage }   from  './pages/adminPage'
+import { AuthProvider } from './context/AuthContext';
 
 export default function App() {
 
   return ( 
     <>
+    <AuthProvider>
       <ChakraProvider theme={theme} >
       <Router>
         <Header />
@@ -23,6 +25,7 @@ export default function App() {
         </Switch>
       </Router>
       </ChakraProvider >
+      </AuthProvider>
     </>
   )
 

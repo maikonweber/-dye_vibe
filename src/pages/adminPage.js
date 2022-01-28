@@ -39,7 +39,8 @@ export  function Formspage () {
             ></Input>
              </FormControl>
              <Stack spacing='4' />
-            <Button type='submit' mt='6' bg='blue.300' color='red.900'> Registrar </Button>
+            <Button type='submit' mt='6' bg='blue.300' color='blue.900'> Registrar </Button>
+            <Button type='submit' mt='6' bg='red.300' color='red.800'> Registrar com Google </Button>
         </Flex>
         </Flex>
     )
