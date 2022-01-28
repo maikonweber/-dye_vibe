@@ -11,15 +11,16 @@ import {
   } from "@chakra-ui/react";
 
 
-export const Card = ({}) => {
+export const Card = ({url, product, description}) => {
     return (
         <Box
-        bg="white"
+        bgGradient="linear-gradient(to right, #FFB6C1 10%, #90EE90 100%)"
         p={2}
         maxWidth="36rem"
         borderWidth={1}
-        margin={5}
+        margin={0}
         rounded="lg"
+        marginLeft={12}
         shadow="md"
       >
         <AspectRatio ratio={1 / 1}>
@@ -30,6 +31,7 @@ export const Card = ({}) => {
             border="1px solid"
             borderColor="gray.200"
             margin="auto"
+        
             src="https://picsum.photos/id/237/250/250"
             alt="Woman paying for a purchase"
           />
@@ -59,11 +61,14 @@ export const Card = ({}) => {
           >
             {'summary'}
           </Link>
-          <Text my={2} color="gray.500">
+          <Text my={2} color="gray.900">
             {'longLine'}
           </Text>
-          <Button maxWidth="100px" my={2}>
-             { 'Compre' }
+          <Button w="180px" 
+          bgGradient="linear(to-r, blue.700, green.200)"
+          my={80}
+          color='black.900'>
+             Adquira Agora
           </Button>
         </Stack>
       </Box>
