@@ -19,19 +19,23 @@ export const Card = ({}) => {
         maxWidth="32rem"
         borderWidth={1}
         margin={5}
+        rounded="lg"
+        shadow="md"
       >
         <AspectRatio ratio={1 / 1}>
           <Image
-            maxWidth="200px"
+            maxWidth="500px"
+            border="1px solid"
+            borderColor="gray.200"
             margin="auto"
             src="https://picsum.photos/id/237/250/250"
             alt="Woman paying for a purchase"
           />
         </AspectRatio>
         <Stack
-          align={{ base: "center", md: "stretch" }}
-          textAlign={{ base: "center", md: "left" }}
-          mt={{ base: 4, md: 0 }}
+          align={{ sm: "center", md: "stretch" }}
+          textAlign={{ sm: "center", md: "left" }}
+          mt={{ sm: 4, md: 0 }}
           ml={{ md: 6 }}
         >
           <Text
@@ -57,7 +61,7 @@ export const Card = ({}) => {
             {'longLine'}
           </Text>
           <Button maxWidth="100px" my={2}>
-            Click me!
+             { 'Compre' }
           </Button>
         </Stack>
       </Box>
