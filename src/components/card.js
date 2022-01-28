@@ -15,8 +15,8 @@ export const Card = ({}) => {
     return (
         <Box
         bg="white"
-        p={4}
-        maxWidth="32rem"
+        p={2}
+        maxWidth="36rem"
         borderWidth={1}
         margin={5}
         rounded="lg"
@@ -25,6 +25,8 @@ export const Card = ({}) => {
         <AspectRatio ratio={1 / 1}>
           <Image
             maxWidth="500px"
+            rounded="lg"
+            shadow="md"
             border="1px solid"
             borderColor="gray.200"
             margin="auto"
@@ -33,10 +35,10 @@ export const Card = ({}) => {
           />
         </AspectRatio>
         <Stack
-          align={{ sm: "center", md: "stretch" }}
-          textAlign={{ sm: "center", md: "left" }}
-          mt={{ sm: 4, md: 0 }}
-          ml={{ md: 6 }}
+          align="center" 
+          textAlign= "center" 
+          mt='4' 
+          ml='6' 
         >
           <Text
             fontWeight="bold"
