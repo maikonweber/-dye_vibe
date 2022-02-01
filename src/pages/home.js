@@ -1,12 +1,15 @@
-import React from 'react'
+import Reac, {useContext} from 'react'
 import {Flex, SimpleGrid, Box, Text } from '@chakra-ui/react'
 import { Card } from '../components/card'
 import Slider from '../components/Slider'
 import { sliderItems } from '../data'
+import { AuthContext } from '../context/AuthContext'
 
 
 export const Home = () => {
-
+  
+    const  auth = useContext(AuthContext)
+    console.log(auth)
 
     return (
         <Flex direction='column' h='100vh' >
@@ -21,7 +24,6 @@ export const Home = () => {
                     <Card></Card>
                     <Card></Card>
                     <Card></Card>
-
                 </SimpleGrid>
                 </Flex>
             </Flex>)

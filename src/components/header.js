@@ -15,6 +15,7 @@ import {
     DrawerCloseButton,
   } from "@chakra-ui/react"
 
+
 const logo = '../../public/logo192.png'
 
 export const Header = () => {
@@ -50,8 +51,8 @@ export const Header = () => {
             <Icon as={RiSearchLine} fontSize='20' color='blue.900' />
             
          </Flex>
-         <Icon as={BsPeopleCircle} ml='6' fontSize='25' color='blue.900' onClick={onOpen} />
-         <Icon as={HiOutlineShoppingCart} ml='6'fontSize='25' color='blue.900' onClick={onOpen} />
+         <Icon as={BsPeopleCircle} ml='6' fontSize='25' color='blue.900' onClick={console.log('her')} />
+         <Icon as={HiOutlineShoppingCart} ml='6'fontSize='25' color='blue.900' onClick={console.log('Car')} />
          <Icon as={GiHamburgerMenu} ml='6'
          fontSize='25' color="blue.900" onClick={onOpen}>
       </Icon>
@@ -64,17 +65,17 @@ export const Header = () => {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Create your account</DrawerHeader>
+          <DrawerHeader> Carrinho de Compra. </DrawerHeader>
 
           <DrawerBody>
-            <Input placeholder="Type here..." />
+            <Input placeholder="Procure pelo seu produto" />
           </DrawerBody>
 
           <DrawerFooter>
             <Button variant="outline" mr={3} onClick={onClose}>
-              Cancel
+              Cancelar tudo
             </Button>
-            <Button colorScheme="blue">Save</Button>
+            <Button colorScheme="blue"> Check In </Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>

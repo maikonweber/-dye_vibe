@@ -4,7 +4,23 @@ import {parseCookies, setCookie} from 'nookies';
 export const AuthContext = createContext({});
 
 export function AuthProvider({ children }) {
-    const auth = 'auth'
+    const [cart, setCart] = useState([]);
+    const auth = 'authetication'
+
+function handleAddtoCart(url, name , price) {
+    const itemObject =  { url , name , price}
+    setCart({...cart, itemObject})
+}
+
+function handleRemoveItemFromCart(clickedItemIndex) {
+    const filteredCart = cart.filter((item, index) => index !== clickedItemIndex);
+    setCart(filteredCart);
+}
+
+function clearCart() {
+    setCart([]);
+}
+
     
     useEffect(() => {
         const { 'nextauth.token': token } = parseCookies()
@@ -12,7 +28,7 @@ export function AuthProvider({ children }) {
     }, []);
 
     return (
-        <AuthContext.Provider value={auth}>
+        <AuthContext.Provider value={{cart, handleAddtoCart, handleRemoveItemFromCart, clearCart}}>
             {children}
         </AuthContext.Provider>
     );

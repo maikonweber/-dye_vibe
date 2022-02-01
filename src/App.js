@@ -14,7 +14,7 @@ export default function App() {
 
   return ( 
     <>
-    <AuthProvider>
+    <AuthProvider >
       <ChakraProvider theme={theme} >
       <Router>
         <Header />
