@@ -1,4 +1,4 @@
-import React from 'react';
+import React  from 'react';
 import {
     Box,
     Flex,
@@ -7,12 +7,18 @@ import {
     Text,
     Link,
     Button,
-    Stack
+    Stack,
   } from "@chakra-ui/react";
+import ProductModal from './modal';
+import { useState } from "react";
 
 
-export const Card = ({url, product, description}) => {
+
+export const Card = ({id ,url, product, description, handleModal}) => {
+
+
     return (
+      <>
         <Box
         bgGradient="linear-gradient(to right, #FFB6C1 10%, #90EE90 100%)"
         p={2}
@@ -32,8 +38,8 @@ export const Card = ({url, product, description}) => {
             borderColor="gray.200"
             margin="auto"
         
-            src="https://picsum.photos/id/237/250/250"
-            alt="Woman paying for a purchase"
+            src={`${url}`}
+            alt={`${product}`}
           />
         </AspectRatio>
         <Stack
@@ -49,7 +55,7 @@ export const Card = ({url, product, description}) => {
             letterSpacing="wide"
             color="teal.600"
           >
-            {'product'}
+            {`${product}`}
           </Text>
           <Link
             my={1}
@@ -59,7 +65,7 @@ export const Card = ({url, product, description}) => {
             fontWeight="semibold"
             href="#"
           >
-            {'summary'}
+            {`${description}`}
           </Link>
           <Text my={2} color="gray.900">
             {'longLine'}
@@ -67,10 +73,12 @@ export const Card = ({url, product, description}) => {
           <Button w="180px" 
           bgGradient="linear(to-r, blue.700, green.200)"
           my={80}
-          color='black.900'>
+          color='black.900'
+          onClick={() => handleModal()}>
              Adquira Agora
           </Button>
         </Stack>
       </Box>
+      </>
     );
 }
