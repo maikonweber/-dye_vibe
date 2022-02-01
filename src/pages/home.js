@@ -4,7 +4,7 @@ import { Card } from '../components/card'
 import Slider from '../components/Slider'
 import { sliderItems } from '../data'
 import { AuthContext } from '../context/AuthContext'
-import ProductModal from '../components/modal'
+import  ProductModal  from '../components/modal'
 const  data = require('../datax')
 const datas = data.sliderItems
 
@@ -18,7 +18,7 @@ export const Home = () => {
     }
 
     useEffect(() => {
-console.log(modalOpen)  
+        console.log(modalOpen)  
     }, [modalOpen])
 
     return (
@@ -37,7 +37,7 @@ console.log(modalOpen)
                             handleModal={handleModal}
                         />
                     ))}
-                        
+                <ProductModal Open={modalOpen} setModal={setModalOpen}/>
                 </SimpleGrid>
                 </Flex>
             </Flex>)

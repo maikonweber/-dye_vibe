@@ -74,7 +74,7 @@ export const Card = ({id ,url, product, description, handleModal}) => {
           bgGradient="linear(to-r, blue.700, green.200)"
           my={80}
           color='black.900'
-          onClick={() => handleModal()}>
+          onClick={handleModal()}>
              Adquira Agora
           </Button>
         </Stack>
