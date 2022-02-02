@@ -4,7 +4,7 @@ import { Card } from '../components/card'
 import Slider from '../components/Slider'
 import { sliderItems } from '../data'
 import { AuthContext } from '../context/AuthContext'
-import  ProductModal  from '../components/modal'
+import  ProductModal  from '../components/modal/modal'
 const  data = require('../datax')
 const datas = data.sliderItems
 
@@ -22,6 +22,8 @@ export const Home = () => {
     }, [modalOpen])
 
     return (
+        <>  
+       
         <Flex direction='column' h='100vh' >
             <Flex  w='100%' my='6' h='50vh' maxWidth={1480} mx='auto' px='6' >
                 <Slider sliderItems={sliderItems} />
@@ -37,8 +39,11 @@ export const Home = () => {
                             handleModal={handleModal}
                         />
                     ))}
-                <ProductModal Open={modalOpen} setModal={setModalOpen}/>
+                
                 </SimpleGrid>
                 </Flex>
-            </Flex>)
+            </Flex>
+            <ProductModal Open={modalOpen} setModal={setModalOpen}/>
+            </>
+            )
 }

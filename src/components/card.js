@@ -9,7 +9,7 @@ import {
     Button,
     Stack,
   } from "@chakra-ui/react";
-import ProductModal from './modal';
+import ProductModal from './modal/modal';
 import { useState } from "react";
 
 
