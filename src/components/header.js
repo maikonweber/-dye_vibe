@@ -22,6 +22,41 @@ export const Header = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
     const btnRef = React.useRef();
 
+
+    const getAllCartLength = () => {
+        const cart = localStorage.getItem('cart')
+        const cartObj = JSON.parse(cart)
+        if(cartObj === null){
+            return 0
+        }else{
+            return cartObj.length
+        }
+    }
+
+    const getAllCart = () => {
+        const cart = localStorage.getItem('cart')
+        const cartObj = JSON.parse(cart)
+        if(cartObj === null){
+            return []
+        }else{
+            return cartObj
+        }
+    }
+
+    const getSomeValorCart = () => {
+      const cart = getAllCart()
+       // For each cart valor sum
+      let sum = 0
+      cart.forEach(item => {
+        sum += item.valor
+      }
+      )      
+      return sum
+    }
+
+    
+
+
     return (
       
         <Flex as='header' bgGradient='linear(to-r, red.100, blue.200)' maxWith={1488} h='20' mx='auto' mt='0'px='8' align='center' w='100%'>
@@ -52,9 +87,9 @@ export const Header = () => {
             
          </Flex>
          <Icon as={BsPeopleCircle} ml='6' fontSize='25' color='blue.900' onClick={console.log('her')} />
-         <Icon as={HiOutlineShoppingCart} ml='6'fontSize='25' color='blue.900' onClick={console.log('Car')} />
+         <Icon as={HiOutlineShoppingCart} ml='6'fontSize='25' color='blue.900' onClick={onOpen} />
          <Icon as={GiHamburgerMenu} ml='6'
-         fontSize='25' color="blue.900" onClick={onOpen}>
+         fontSize='25' color="blue.900" onClick={console.log('aaa')}>
       </Icon>
       <Drawer
         isOpen={isOpen}

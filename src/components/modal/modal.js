@@ -1,15 +1,59 @@
 import React from 'react';
 import Styles from './modal.module.css'
-
+import { toast, useToast } from '@chakra-ui/react'
 
 
 const ProductModal = ({Open ,setModal, product, description, img, quantidade, valor}) => {
-
+  const toast = useToast()
   const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'full']
 
     const clooseModel = () => {
         setModal(!true)
     }
+
+    const addToCart = () => {
+      // Save the product, description, img, quantidade, valor
+      // in localStorage
+      const cart = localStorage.getItem('cart')
+      const cartObj = JSON.parse(cart)
+      if(cartObj === null){
+        const newProduct = {
+          product,
+          description,
+          img,
+          quantidade,
+          valor
+        }
+        const newCart = [newProduct]
+        localStorage.setItem('cart', JSON.stringify(newCart))
+        toast({
+          title: 'Produto adicionado ao carrinho',
+          description: 'O produto foi adicionado ao carrinho com sucesso',
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
+      }else{
+        const newProduct = {
+          product,
+          description,
+          img,
+          quantidade,
+          valor
+        }
+        cartObj.push(newProduct)
+        localStorage.setItem('cart', JSON.stringify(cartObj))
+        toast({
+          title: 'Produto adicionado ao carrinho',
+          description: 'O produto foi adicionado ao carrinho com sucesso',
+          status: 'success',
+          duration: 9000,
+          isClosable: true,
+        })
+      }
+      setModal(!true)
+    }
+    
 
     return (
       <>
@@ -18,7 +62,7 @@ const ProductModal = ({Open ,setModal, product, description, img, quantidade, va
 
             
                 <div className={Styles.modal_header}>
-                <button className={Styles.close} onClick={clooseModel}>&times;</button>
+                
                     <div className={Styles.modal_header_title}>
                         <h2>{product}</h2>
                     </div>
@@ -31,7 +75,12 @@ const ProductModal = ({Open ,setModal, product, description, img, quantidade, va
                       <div className={Styles.description}>{description}</div>
                         <div className={Styles.quantidade}>{`Quantidade : ${quantidade}`}</div>
                         <div className={Styles.valor}>{valor}</div>
-                      <button className={Styles.btn}>Add to cart</button>
+                      <button className={Styles.btn}
+                        onClick={() => addToCart()}
+                        
+                            >
+                         Add to cart</button>
+                         <button className={Styles.btn} onClick={clooseModel}> Cancelar </button>
                       </div>
                       </div>
                       </div>
