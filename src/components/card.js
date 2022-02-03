@@ -14,8 +14,12 @@ import { useState } from "react";
 
 
 
-export const Card = ({id ,url, product, description, handleModal}) => {
-
+export const Card = ({id ,url, product, description, valor, resume, quantidade}) => {
+  const [modalOpen, setModalOpen] = useState(false)
+  const handleModal = () => {
+    setModalOpen(!false)
+     
+ }
 
     return (
       <>
@@ -65,20 +69,21 @@ export const Card = ({id ,url, product, description, handleModal}) => {
             fontWeight="semibold"
             href="#"
           >
-            {`${description}`}
+            {`${resume}`}
           </Link>
-          <Text my={2} color="gray.900">
-            {'longLine'}
+          <Text my={2} color="blue.900">
+            {`${valor}`}
           </Text>
           <Button w="180px" 
-          bgGradient="linear(to-r, blue.700, green.200)"
+          bgGradient="linear(to-r, green.400, red.200)"
           my={80}
           color='black.900'
-          onClick={handleModal()}>
-             Adquira Agora
+          onClick={handleModal}>
+             Visualizar
           </Button>
         </Stack>
       </Box>
+      {modalOpen ? <ProductModal Open={modalOpen} setModal={setModalOpen} img={url} product={product} valor={valor} quantidade={quantidade} description={description} /> : null}
       </>
     );
 }

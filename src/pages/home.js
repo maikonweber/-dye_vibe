@@ -13,7 +13,7 @@ export const Home = () => {
     const [modalOpen, setModalOpen] = useState(false)
 
     const handleModal = () => {
-        setModalOpen(!false)
+       setModalOpen(!false)
         
     }
 
@@ -36,14 +36,17 @@ export const Home = () => {
                             url={item.url}
                             product={item.product}
                             description={item.description}
+                            valor={item.valor}
+                            resume={item.resume}
+                            quantidade={item.quantidade}
                             handleModal={handleModal}
                         />
                     ))}
-                
                 </SimpleGrid>
                 </Flex>
             </Flex>
-            <ProductModal Open={modalOpen} setModal={setModalOpen}/>
+            
+        
             </>
             )
 }
