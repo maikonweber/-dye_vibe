@@ -54,6 +54,20 @@ export const Header = () => {
       return sum
     }
 
+    const clearCart = () => {
+      // Clear cart in localStoage 
+      localStorage.removeItem('cart')
+      // Clear cart in state
+    }
+
+    const selectCartandRemove = (id) => {
+      const cart = getAllCart()
+       // Remove the product in cart
+      cart.forEach((item, index) => {
+        if(item.id === id){
+          cart.splice(index, 1)
+        }
+    
     
 
 
@@ -105,6 +119,7 @@ export const Header = () => {
           <DrawerBody>
             <Input placeholder="Procure pelo seu produto" />
           </DrawerBody>
+
 
           <DrawerFooter>
             <Button variant="outline" mr={3} onClick={onClose}>
