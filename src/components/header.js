@@ -13,6 +13,10 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
+    Box, 
+    Text,
+
+  
   } from "@chakra-ui/react"
 
 
@@ -36,6 +40,7 @@ export const Header = () => {
     const getAllCart = () => {
         const cart = localStorage.getItem('cart')
         const cartObj = JSON.parse(cart)
+        console.log(cartObj)
         if(cartObj === null){
             return []
         }else{
@@ -67,8 +72,9 @@ export const Header = () => {
         if(item.id === id){
           cart.splice(index, 1)
         }
-    
-    
+      }
+      )
+    }
 
 
     return (
@@ -118,11 +124,25 @@ export const Header = () => {
 
           <DrawerBody>
             <Input placeholder="Procure pelo seu produto" />
+            {getAllCart().map(item => (
+            
+               <Box mt='2' w='270px' h='130px' > 
+            
+              <Image src={item.img} 
+               borderRadius='full'
+               boxSize='75px'>
+              </Image>
+              <Text fontSize='xs'>{item.product}</Text>
+              <Text fontSize='xs'>{item.valor}</Text>
+              <Button variantColor='red' onClick={() => selectCartandRemove(item.id)}>Remover</Button>
+
+            </Box>
+            
+            ))}
           </DrawerBody>
-
-
+         
           <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={onClose}>
+            <Button variant="outline" mr={3} onClick={() => clearCart() }>
               Cancelar tudo
             </Button>
             <Button colorScheme="blue"> Check In </Button>
@@ -131,4 +151,4 @@ export const Header = () => {
       </Drawer>
         </Flex>
     )
-};
+}
