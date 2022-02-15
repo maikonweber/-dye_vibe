@@ -9,6 +9,8 @@ import  { Header }  from './components/header';
 import { Home } from './pages/home';  
 import { Formspage }   from  './pages/adminPage'
 import { AuthProvider } from './context/AuthContext';
+import { Cheackout } from './pages/cheackout';
+
 
 export default function App() {
 
@@ -22,6 +24,7 @@ export default function App() {
           <Route exact path="/login" component={login}  />
           <Route exact path="/forms" component={Formspage} />
           <Route exact path="/" component={Home}  />
+          <Route exact path='/cheackout' component={Cheackout}/>
         </Switch>
       </Router>
       </ChakraProvider >

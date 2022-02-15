@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Flex, Image, Input, Icon, Spacer, Button, useDisclosure } from '@chakra-ui/react'
 import  {RiSearchLine} from 'react-icons/ri';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import {BsPeopleCircle} from 'react-icons/bs';
 import {HiOutlineShoppingCart } from 'react-icons/hi';
+import { AuthContext } from '../context/AuthContext';
 import {
     Drawer,
     DrawerBody,
@@ -24,67 +25,28 @@ const logo = '../../public/logo192.png'
 
 export const Header = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
-    const [cart, setCart] = React.useState([]);
+  
     const btnRef = React.useRef();
 
+    // use Contenxt
+    const {cart, handleAddtoCart, handleRemoveItemFromCart, clearCart, getCart, hadlesItemCartLength } = useContext(AuthContext);
+    console.log(cart)
 
-    const getAllCartLength = () => {
-        const cart = localStorage.getItem('cart')
-        const cartObj = JSON.parse(cart)
-        if(cartObj === null){
-            return 0
-        }else{
-            return cartObj.length
-        }
-    }
+    useEffect(() => {
+      getCart();
 
-    const getAllCart = () => {
-        const cart = localStorage.getItem('cart')
-        const cartObj = JSON.parse(cart)
-        console.log(cartObj)
-        if(cartObj === null){
-            return []
-        }else{
-            return setCart(cartObj)
-        }
-    }
 
-    const getSomeValorCart = () => {
-      const cart = getAllCart()
-       // For each cart valor sum
-      let sum = 0
-      cart.forEach(item => {
-        sum += item.valor
-      }
-      )      
-      return sum
-    }
 
-    const clearCart = () => {
-      // Clear cart in localStoage 
-      localStorage.removeItem('cart')
-      // Clear cart in state
-    }
-
-    const selectCartandRemove = (id) => {
-      setCart(cart.filter((item, index) => index !== id))
-      
+    }, [hadlesItemCartLength()])
     
 
-    }
 
-    useEffect(() => {
-      
-
-
-
-    }, [cart])
 
 
     useEffect(() => {
-      getAllCart()
+     
 
-    }, [getAllCartLength()])
+    }, [])
         
       
 
@@ -145,7 +107,7 @@ export const Header = () => {
               <Text fontSize='20px' mt='2' >{item.name}</Text>
               <Text fontSize='xs'>{item.product}</Text>
               <Text fontSize='xs'>{item.valor}</Text>
-              <Button variantColor='red' onClick={() => selectCartandRemove(index) }> Remover </Button>
+              <Button variantColor='red' onClick={() => handleRemoveItemFromCart(index) }> Remover </Button>
 
             </Box>
             
