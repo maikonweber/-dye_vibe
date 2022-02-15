@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Flex, Image, Input, Icon, Spacer, Button, useDisclosure } from '@chakra-ui/react'
 import  {RiSearchLine} from 'react-icons/ri';
@@ -24,6 +24,7 @@ const logo = '../../public/logo192.png'
 
 export const Header = () => {
     const {isOpen, onOpen, onClose} = useDisclosure();
+    const [cart, setCart] = React.useState([]);
     const btnRef = React.useRef();
 
 
@@ -44,7 +45,7 @@ export const Header = () => {
         if(cartObj === null){
             return []
         }else{
-            return cartObj
+            return setCart(cartObj)
         }
     }
 
@@ -66,16 +67,26 @@ export const Header = () => {
     }
 
     const selectCartandRemove = (id) => {
-      const cart = getAllCart()
-       // Remove the product in cart
-      cart.forEach((item, index) => {
-        if(item.id === id){
-          cart.splice(index, 1)
-        }
-      }
-      )
+      setCart(cart.filter((item, index) => index !== id))
+      
+    
+
     }
 
+    useEffect(() => {
+      
+
+
+
+    }, [cart])
+
+
+    useEffect(() => {
+      getAllCart()
+
+    }, [getAllCartLength()])
+        
+      
 
     return (
       
@@ -116,6 +127,7 @@ export const Header = () => {
         placement="right"
         onClose={onClose}
         finalFocusRef={btnRef}
+
       >
         <DrawerOverlay />
         <DrawerContent>
@@ -124,17 +136,16 @@ export const Header = () => {
 
           <DrawerBody>
             <Input placeholder="Procure pelo seu produto" />
-            {getAllCart().map(item => (
-            
-               <Box mt='2' w='270px' h='130px' > 
-            
+            {cart.map((item, index ) => (
+              <Box mt='2' w='270px' h='130px' > 
               <Image src={item.img} 
                borderRadius='full'
                boxSize='75px'>
               </Image>
+              <Text fontSize='20px' mt='2' >{item.name}</Text>
               <Text fontSize='xs'>{item.product}</Text>
               <Text fontSize='xs'>{item.valor}</Text>
-              <Button variantColor='red' onClick={() => selectCartandRemove(item.id)}>Remover</Button>
+              <Button variantColor='red' onClick={() => selectCartandRemove(index) }> Remover </Button>
 
             </Box>
             
